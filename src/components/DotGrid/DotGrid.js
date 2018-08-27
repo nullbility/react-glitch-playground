@@ -13,10 +13,14 @@ export const DotGrid = styled.div`
   width: 100%;
   height: 100%;
 
-  background-image: url('./images/${props => gridStyles[props.gridStyle || 'square-dots']}.svg');
-  background-size: 5rem;
-  background-position: center;
-
   pointer-events: none;
   z-index: 0;
+
+  background-position: center;
+
+  background-size: ${props => props.size || '2rem'};
+  background-image: url('./images/${props => gridStyles[props.gridStyle || 'square-dots']}.svg');
+  opacity: ${props => props.opacity || 0.3};
+
+  transform: ${props => props.transformation || 'translate3d(0px, 0px, 0px)'};
 `;

@@ -6,12 +6,6 @@ import split from 'lodash/split';
 import sample from 'lodash/sample';
 
 const TextContainer = styled.span`
-  color: #aff;
-  padding: .5rem 1rem;
-  margin: 1rem;
-  border: 1px solid #aff;
-  border-left-width: 0px;
-  border-right-width: 0px;
   display: inline-block;
 
   line-height: 1;
