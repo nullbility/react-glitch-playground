@@ -2,13 +2,18 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
-import { Text } from './components';
+import { Text, DotGrid } from './components';
 
 const Wrapper = styled.div`
   position: relative;
   font-family: Roboto, sans-serif;
   height: 100%;
   background-color: #001;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 class App extends Component {
@@ -29,6 +34,7 @@ class App extends Component {
 
     return (
       <Wrapper>
+        <DotGrid />
         <Text corruption={corruption}>82 Subscribers</Text>
         <br />
         <input type="range" value={corruption} step=".1" min="0" max="1" onChange={this.setCorruption} />
