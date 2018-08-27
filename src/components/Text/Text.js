@@ -10,6 +10,8 @@ const TextContainer = styled.span`
 
   line-height: 1;
   font-feature-settings: "hwid" 1;
+
+  transform: translateZ(10px);
 `;
 
 const katakana = [

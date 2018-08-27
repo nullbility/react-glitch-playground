@@ -26,6 +26,7 @@ const Plane = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transform-style: preserve-3d;
 `;
 
 /* transform: rotate3d(1, 1, 0, 10deg); */
@@ -34,10 +35,10 @@ const gridLayers = (numLayers) => {
   let layers = [];
 
   for(let i = 0; i < numLayers; i++) {
-    const opacity = i === 0 ? .4 : (numLayers - i) / 75;
+    const opacity = i === 0 ? .4 : (numLayers - i) / 50;
 
     layers.push(
-      <DotGrid key={i} size="5rem" opacity={opacity} transformation={`translate3d(0px, 0px, ${i * -240}px)`} />
+      <DotGrid key={i} size="5rem" opacity={opacity} transformation={`translate3d(0px, 0px, ${i * -24}px)`} />
     );
   }
 
@@ -73,7 +74,7 @@ class App extends Component {
     return (
       <Wrapper>
         <Plane style={{ textAlign: 'center', transform: deviceRotation }}>
-          {gridLayers(1)}
+          {gridLayers(7)}
           <Panel>
             <Text corruption={corruption}>82 Subscribers</Text>
             <br />

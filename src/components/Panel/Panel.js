@@ -10,5 +10,6 @@ export const Panel = styled.div`
   background-color: #001;
 
   z-index: 1;
-  transform: translateZ(10px);
+  transform: translateZ(30px);
+  transform-style: preserve-3d;
 `;
