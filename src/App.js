@@ -2,14 +2,18 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
+import { setDeviceRotation } from './actions';
+
 import { DotGrid, Panel, Text } from './components';
 
 const Wrapper = styled.div`
   position: relative;
   font-family: Roboto, sans-serif;
   height: 100%;
+  width: 100%;
   background-color: #001;
   color: #aff;
+  overflow: hidden;
 
   perspective: 3000px;
   perspective-orign: center center;
@@ -44,8 +48,17 @@ class App extends Component {
   constructor(props) {
     super(props);
 
+    window.addEventListener("deviceorientation", function(e) {
+      // remember to use vendor-prefixed transform property
+      props.setDeviceRotation(
+        "rotateZ(" + ( e.alpha - 270 ) + "deg) " +
+        "rotateX(" + e.beta + "deg) " +
+        "rotateY(" + ( -e.gamma ) + "deg)"
+      );
+    });
+
     this.state = {
-      corruption: 0.2,
+      corruption: 0.1,
     };
   }
 
@@ -55,10 +68,11 @@ class App extends Component {
 
   render() {
     const { corruption } = this.state;
+    const { deviceRotation } = this.props;
 
     return (
       <Wrapper>
-        <Plane style={{ textAlign: 'center' }}>
+        <Plane style={{ textAlign: 'center', transform: deviceRotation }}>
           {gridLayers(1)}
           <Panel>
             <Text corruption={corruption}>82 Subscribers</Text>
@@ -73,11 +87,13 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
+    deviceRotation: state.deviceRotation,
   }
 };
 
 const mapDispatchToProps = dispatch => {
   return {
+    setDeviceRotation: (r) => dispatch(setDeviceRotation(r)),
   }
 };
 
