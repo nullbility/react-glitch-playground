@@ -14,12 +14,25 @@ const Wrapper = styled.div`
 class App extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      corruption: 0,
+    };
+  }
+
+  setCorruption = (e) => {
+    console.log(e);
+    this.setState({ corruption: e.target.value });
   }
 
   render() {
+    const { corruption } = this.state;
+
     return (
       <Wrapper>
-        <Text>Hello World!</Text>
+        <Text corruption={corruption}>Hello World!</Text>
+        <br />
+        <input type="range" value={corruption} step=".1" min="0" max="1" onChange={this.setCorruption} />
       </Wrapper>
     );
   }
