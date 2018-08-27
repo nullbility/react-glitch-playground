@@ -16,12 +16,11 @@ class App extends Component {
     super(props);
 
     this.state = {
-      corruption: 0,
+      corruption: 0.2,
     };
   }
 
   setCorruption = (e) => {
-    console.log(e);
     this.setState({ corruption: e.target.value });
   }
 
@@ -30,7 +29,7 @@ class App extends Component {
 
     return (
       <Wrapper>
-        <Text corruption={corruption}>Hello World!</Text>
+        <Text corruption={corruption}>82 Subscribers</Text>
         <br />
         <input type="range" value={corruption} step=".1" min="0" max="1" onChange={this.setCorruption} />
       </Wrapper>

@@ -50,8 +50,14 @@ export const Text = ({
   children,
 }) => (
   <TextContainer>
-    {map(split(children, ''), (char, i) => (
-      <Char key={children + 'char' + i} encoded>{Math.random() > corruption ? char : sample(katakana)}</Char>
-    ))}
+    {map(split(children, ''), (char, i) => {
+      return char === ' '
+        ? <Char> </Char>
+        : (
+          <Char key={children + 'char' + i} encoded>
+            {Math.random() > corruption ? char : sample(katakana)}
+          </Char>
+        );
+    })}
   </TextContainer>
 );
