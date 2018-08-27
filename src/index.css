@@ -1,0 +1,14 @@
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+@font-face Aurebesh {
+	font-family: 'Aurebesh';
+	src: url('./fonts/Aurebesh.ttf') format('truetype');
+}
