@@ -10,6 +10,10 @@ const TextContainer = styled.span`
 
   line-height: 1;
   font-feature-settings: "hwid" 1;
+
+  text-shadow:
+    -2px 0px 0px rgba(100, 100, 255, 0.5), // blue
+     2px 0px 0px rgba(255, 255, 0, 0.5); // red
 `;
 
 const katakana = [
